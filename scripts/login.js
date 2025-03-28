@@ -10,11 +10,11 @@ document
       Number.isNaN(Number(account.value)) ||
       Number(account.value) <= 0
     ) {
-      alert("Invalid account number.");
+      alert("Account number is invalid.");
       account.value = "";
     } else {
       if (password.value !== "123456") {
-        alert("Password: 123456");
+        alert("Password is incorrect.\nPassword: 123456");
         password.value = "";
       } else {
         window.location.href = "./home.html";

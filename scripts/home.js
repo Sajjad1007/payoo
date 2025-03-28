@@ -1,10 +1,3 @@
-document
-  .getElementById("logout-btn")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    window.location.href = "./index.html";
-  });
-
 const addMoneyForm = document.getElementById("add-money-form");
 const cashOutForm = document.getElementById("cash-out-form");
 const sendMoneyForm = document.getElementById("send-money-form");
@@ -17,7 +10,13 @@ cashOutForm.style.display = "none";
 sendMoneyForm.style.display = "none";
 getBonusForm.style.display = "none";
 payBillForm.style.display = "none";
-transactionHistory.style.display = "none";
+
+document
+  .getElementById("logout-btn")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    window.location.href = "./index.html";
+  });
 
 document
   .getElementById("add-money")

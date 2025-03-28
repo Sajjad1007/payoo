@@ -1,3 +1,4 @@
+const currentBalance = document.getElementById("current-balance");
 const transactionContainer = document.getElementById("transaction-container");
 const transactionTitle = document.getElementById("transaction-title");
 const clearAll = document.getElementById("clear-all");
@@ -12,29 +13,25 @@ document
     const password = document.getElementById("add-money-password");
 
     if (bank.value === "default") {
-      alert("No bank selected.");
+      alert("No bank is selected.");
     } else if (
       account.value.trim() === "" ||
       Number.isNaN(Number(account.value)) ||
       Number(account.value) < 0
     ) {
-      alert("Invalid account number.");
+      alert("Account number is invalid.");
       account.value = "";
     } else if (
       amount.value.trim() === "" ||
       Number.isNaN(Number(amount.value)) ||
       Number(amount.value) < 0
     ) {
-      alert("Invalid amount.");
+      alert("Amount is invalid.");
       amount.value = "";
     } else if (password.value !== "123456") {
-      alert("Password: 123456");
+      alert("Password is incorrect.\nPassword: 123456");
       password.value = "";
     } else {
-      const currentBalance = document.getElementById("current-balance");
-      currentBalance.innerText =
-        Number(currentBalance.innerText) + Number(amount.value);
-
       const date = new Date();
       let hours = date.getHours();
       const minutes = String(date.getMinutes()).padStart(2, "0");
@@ -66,14 +63,16 @@ document
         "mt-4"
       );
       div.innerHTML = `
-      <div class="p-3 bg-gray-100 rounded-full">
-              <img src="./images/money.png" loading="lazy" alt="Money">
-            </div>
-            <div>
-              <h3 class="text-base font-medium opacity-70 mb-1">Added Money $${amount.value} </h3>
-              <p class="text-xs opacity-70">Today ${formattedTime}</p>
-            </div>
+        <div class="p-3 bg-gray-100 rounded-full">
+          <img src="./assets/add-money.png" loading="lazy" alt="Add Money">
+        </div>
+        <div>
+          <h3 class="text-base font-medium opacity-70 mb-1">Added Money $${amount.value} </h3>
+          <p class="text-xs opacity-70">Today ${formattedTime}</p>
+        </div>
       `;
+      currentBalance.innerText =
+        Number(currentBalance.innerText) + Number(amount.value);
       transactionContainer.appendChild(div);
       bank.selectedIndex = 0;
       account.value = "";
@@ -92,31 +91,26 @@ document
     const password = document.getElementById("cash-out-password");
 
     if (service.value === "default") {
-      alert("No service selected.");
+      alert("No service is selected.");
     } else if (
       agent.value.trim() === "" ||
       agent.value.length !== 11 ||
       !agent.value.startsWith("01")
     ) {
-      alert("Invalid mobile number.");
+      alert("Mobile number is invalid.");
       agent.value = "";
     } else if (
       amount.value.trim() === "" ||
       Number.isNaN(Number(amount.value)) ||
       Number(amount.value) < 0
     ) {
-      alert("Invalid amount.");
+      alert("Amount is invalid.");
       amount.value = "";
     } else if (password.value !== "123456") {
-      alert("Password: 123456");
+      alert("Password is incorrect.\nPassword: 123456");
       password.value = "";
     } else {
-      const currentBalance = document.getElementById("current-balance");
-
       if (Number(currentBalance.innerText) >= Number(amount.value)) {
-        currentBalance.innerText =
-          Number(currentBalance.innerText) - Number(amount.value);
-
         const date = new Date();
         let hours = date.getHours();
         const minutes = String(date.getMinutes()).padStart(2, "0");
@@ -149,13 +143,15 @@ document
         );
         div.innerHTML = `
           <div class="p-3 bg-gray-100 rounded-full">
-                  <img src="./images/cash-out.png" loading="lazy" alt="Cash Out">
-                </div>
-                <div>
-                  <h3 class="text-base font-medium opacity-70 mb-1">Cashed Out $${amount.value} </h3>
-                  <p class="text-xs opacity-70">Today ${formattedTime}</p>
-                </div>
-          `;
+            <img src="./assets/cash-out.png" loading="lazy" alt="Cash Out">
+          </div>
+          <div>
+            <h3 class="text-base font-medium opacity-70 mb-1">Cashed Out $${amount.value} </h3>
+            <p class="text-xs opacity-70">Today ${formattedTime}</p>
+          </div>
+        `;
+        currentBalance.innerText =
+          Number(currentBalance.innerText) - Number(amount.value);
         transactionContainer.appendChild(div);
         service.selectedIndex = 0;
         agent.value = "";
@@ -178,31 +174,26 @@ document
     const password = document.getElementById("send-money-password");
 
     if (bank.value === "default") {
-      alert("No bank selected.");
+      alert("No bank is selected.");
     } else if (
       account.value.trim() === "" ||
       Number.isNaN(Number(account.value)) ||
       Number(account.value) < 0
     ) {
-      alert("Invalid account number.");
+      alert("Account number is invalid.");
       account.value = "";
     } else if (
       amount.value.trim() === "" ||
       Number.isNaN(Number(amount.value)) ||
       Number(amount.value) < 0
     ) {
-      alert("Invalid amount.");
+      alert("Amount is invalid.");
       amount.value = "";
     } else if (password.value !== "123456") {
-      alert("Password: 123456");
+      alert("Password is incorrect.\nPassword: 123456");
       password.value = "";
     } else {
-      const currentBalance = document.getElementById("current-balance");
-
       if (Number(currentBalance.innerText) >= Number(amount.value)) {
-        currentBalance.innerText =
-          Number(currentBalance.innerText) - Number(amount.value);
-
         const date = new Date();
         let hours = date.getHours();
         const minutes = String(date.getMinutes()).padStart(2, "0");
@@ -235,13 +226,15 @@ document
         );
         div.innerHTML = `
           <div class="p-3 bg-gray-100 rounded-full">
-                  <img src="./images/send.png" loading="lazy" alt="Send">
-                </div>
-                <div>
-                  <h3 class="text-base font-medium opacity-70 mb-1">Sent Money $${amount.value} </h3>
-                  <p class="text-xs opacity-70">Today ${formattedTime}</p>
-                </div>
-          `;
+            <img src="./assets/send-money.png" loading="lazy" alt="Send Money">
+          </div>
+          <div>
+            <h3 class="text-base font-medium opacity-70 mb-1">Sent Money $${amount.value} </h3>
+            <p class="text-xs opacity-70">Today ${formattedTime}</p>
+          </div>
+        `;
+        currentBalance.innerText =
+          Number(currentBalance.innerText) - Number(amount.value);
         transactionContainer.appendChild(div);
         bank.selectedIndex = 0;
         account.value = "";
@@ -269,16 +262,13 @@ document
       bonusCoupon[0] !== "BONUS" ||
       isNaN(bonusCoupon[1])
     ) {
-      alert("Coupon: BONUS10");
+      alert("Coupon is invalid.\nCoupon: BONUS10");
       getBonus.value = "";
     } else if (password.value !== "123456") {
-      alert("Password: 123456");
+      alert("Password is incorrect.\nPassword: 123456");
       password.value = "";
     } else {
-      const currentBalance = document.getElementById("current-balance");
       const bonus = Number(bonusCoupon[1]) % 100;
-      currentBalance.innerText =
-        Number(currentBalance.innerText) * (1 + bonus / 100);
 
       if (bonus === 0) {
         getBonus.value = "";
@@ -317,14 +307,16 @@ document
         "mt-4"
       );
       div.innerHTML = `
-          <div class="p-3 bg-gray-100 rounded-full">
-                  <img src="./images/bonus.png" loading="lazy" alt="Bonus" class="w-6 h-6">
-                </div>
-                <div>
-                  <h3 class="text-base font-medium opacity-70 mb-1">Got Bonus ${bonus}% </h3>
-                  <p class="text-xs opacity-70">Today ${formattedTime}</p>
-                </div>
-          `;
+        <div class="p-3 bg-gray-100 rounded-full">
+          <img src="./assets/get-bonus.png" loading="lazy" alt="Get Bonus" class="w-6 h-6">
+        </div>
+        <div>
+          <h3 class="text-base font-medium opacity-70 mb-1">Got Bonus ${bonus}% </h3>
+          <p class="text-xs opacity-70">Today ${formattedTime}</p>
+        </div>
+      `;
+      currentBalance.innerText =
+        Number(currentBalance.innerText) * (1 + bonus / 100);
       transactionContainer.appendChild(div);
       getBonus.value = "";
       password.value = "";
@@ -341,31 +333,26 @@ document
     const password = document.getElementById("pay-bill-password");
 
     if (service.value === "default") {
-      alert("No bill selected.");
+      alert("No bill is selected.");
     } else if (
       account.value.trim() === "" ||
       Number.isNaN(Number(account.value)) ||
       Number(account.value) < 0
     ) {
-      alert("Invalid account number.");
+      alert("Account number is invalid.");
       account.value = "";
     } else if (
       amount.value.trim() === "" ||
       Number.isNaN(Number(amount.value)) ||
       Number(amount.value) < 0
     ) {
-      alert("Invalid amount.");
+      alert("Amount is invalid.");
       amount.value = "";
     } else if (password.value !== "123456") {
-      alert("Password: 123456");
+      alert("Password is incorrect.\nPassword: 123456");
       password.value = "";
     } else {
-      const currentBalance = document.getElementById("current-balance");
-
       if (Number(currentBalance.innerText) >= Number(amount.value)) {
-        currentBalance.innerText =
-          Number(currentBalance.innerText) - Number(amount.value);
-
         const date = new Date();
         let hours = date.getHours();
         const minutes = String(date.getMinutes()).padStart(2, "0");
@@ -397,14 +384,16 @@ document
           "mt-4"
         );
         div.innerHTML = `
-            <div class="p-3 bg-gray-100 rounded-full">
-                    <img src="./images/bill.png" loading="lazy" alt="Bill">
-                  </div>
-                  <div>
-                    <h3 class="text-base font-medium opacity-70 mb-1">Bill Paid $${amount.value} </h3>
-                    <p class="text-xs opacity-70">Today ${formattedTime}</p>
-                  </div>
-            `;
+          <div class="p-3 bg-gray-100 rounded-full">
+            <img src="./assets/pay-bill.png" loading="lazy" alt="Pay Bill">
+          </div>
+          <div>
+            <h3 class="text-base font-medium opacity-70 mb-1">Bill Paid $${amount.value} </h3>
+            <p class="text-xs opacity-70">Today ${formattedTime}</p>
+          </div>
+        `;
+        currentBalance.innerText =
+          Number(currentBalance.innerText) - Number(amount.value);
         transactionContainer.appendChild(div);
         service.selectedIndex = 0;
         account.value = "";
