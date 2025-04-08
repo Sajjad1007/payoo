@@ -4,7 +4,7 @@
 
 Welcome to **Payoo**, a modern and fully responsive website designed to provide users with an experience for mobile financial services. The project aims to provide an engaging and seamless user experience, ensuring a visually appealing layout with easy accessibility on mobile, tablet and desktop devices.
 
-### [Click here](https://payoo-sajjadur-rahman.netlify.app/) to visit the website.
+### [Click here](https://payoo-by-sajjadur-rahman.netlify.app/) to visit the website.
 
 ## Technologies Used
 
