@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Payoo</title>
+  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            "outfit": ["Outfit", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-slate-800 font-outfit text-[#080808] overflow-y-scroll">
+  <div class="max-w-md min-h-screen mx-auto bg-gray-100">
+    <header class="bg-white">
+      <div class="pt-4 px-4 sm:px-6">
+        <nav class="flex justify-between items-center">
+          <div class="flex gap-2">
+            <div class="w-12">
+              <img src="./assets/logo.png" loading="lazy" alt="Logo">
+            </div>
+            <div>
+              <h3 class="font-outfit font-bold text-xl">$<span id="current-balance">5000</span></h3>
+              <p class="text-sm opacity-50">Available Balance</p>
+            </div>
+          </div>
+          <button id="logout-btn"
+            class="btn btn-sm bg-white hover:bg-gray-200 opacity-50 rounded-lg text-base font-normal border border-gray-300 px-3 h-10"><svg
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+            </svg>Logout</button>
+        </nav>
+      </div>
+      <hr class="mt-4 opacity-80">
+    </header>
+
+    <main>
+      <section class="px-4 sm:px-6 py-6 bg-white rounded-b-3xl">
+        <h1 class="font-bold text-3xl mb-2">Welcome To Payoo!</h1>
+        <p class="opacity-50">Enjoy easy and convenient financial services with us. Cash out charge is low.</p>
+        <div class="mt-6 grid grid-cols-3 gap-3 sm:gap-4">
+          <div id="add-money"
+            class="border-2 border-[rgba(8,8,8,0.1)] hover:border-[rgb(8,116,242)] hover:bg-[rgba(8,116,242,0.05)] hover:text-[rgb(8,116,242)] font-medium rounded-xl cursor-pointer py-5">
+            <div class="flex justify-center items-center">
+              <img src="./assets/add-money.png" loading="lazy" alt="Add Money">
+            </div>
+            <h4 class="text-center mt-2 opacity-80 text-sm sm:text-base">Add Money</h4>
+          </div>
+          <div id="cash-out"
+            class="border-2 border-[rgba(8,8,8,0.1)] hover:border-[rgba(8,116,242)] hover:bg-[rgba(8,116,242,0.05)] hover:text-[#0874f2] font-medium rounded-xl cursor-pointer py-5">
+            <div class="flex justify-center items-center">
+              <img src="./assets/cash-out.png" loading="lazy" alt="Cash Out">
+            </div>
+            <h4 class="text-center mt-2 opacity-80 text-sm sm:text-base">Cash Out</h4>
+          </div>
+          <div id="send-money"
+            class="border-2 border-[rgba(8,8,8,0.1)] hover:border-[rgba(8,116,242)] hover:bg-[rgba(8,116,242,0.05)] hover:text-[#0874f2] font-medium rounded-xl cursor-pointer py-5">
+            <div class="flex justify-center items-center">
+              <img src="./assets/send-money.png" loading="lazy" alt="Send Money">
+            </div>
+            <h4 class="text-center mt-2 opacity-80 text-sm sm:text-base">Send Money</h4>
+          </div>
+          <div id="get-bonus"
+            class="border-2 border-[rgba(8,8,8,0.1)] hover:border-[rgba(8,116,242)] hover:bg-[rgba(8,116,242,0.05)] hover:text-[#0874f2] font-medium rounded-xl cursor-pointer py-5">
+            <div class="flex justify-center items-center">
+              <img src="./assets/get-bonus.png" loading="lazy" alt="Get Bonus" class="w-6 h-6">
+            </div>
+            <h4 class="text-center mt-2 opacity-80 text-sm sm:text-base">Get Bonus</h4>
+          </div>
+          <div id="pay-bill"
+            class="border-2 border-[rgba(8,8,8,0.1)] hover:border-[rgba(8,116,242)] hover:bg-[rgba(8,116,242,0.05)] hover:text-[#0874f2] font-medium rounded-xl cursor-pointer py-5">
+            <div class="flex justify-center items-center">
+              <img src="./assets/pay-bill.png" loading="lazy" alt="Pay Bill">
+            </div>
+            <h4 class="text-center mt-2 opacity-80 text-sm sm:text-base">Pay Bill</h4>
+          </div>
+          <div id="transactions"
+            class="border-2 border-[rgba(8,8,8,0.1)] hover:border-[rgba(8,116,242)] hover:bg-[rgba(8,116,242,0.05)] hover:text-[#0874f2] font-medium rounded-xl cursor-pointer py-5">
+            <div class="flex justify-center items-center">
+              <img src="./assets/transactions.png" loading="lazy" alt="Transactions">
+            </div>
+            <h4 class="text-center mt-2 opacity-80 text-sm sm:text-base">Transactions</h4>
+          </div>
+        </div>
+      </section>
+
+      <section id="add-money-form" class="bg-gray-100 px-4 sm:px-6 py-6">
+        <h2 class="text-xl font-semibold">Add Money</h2>
+        <div class="hero-content pb-0 px-0">
+          <div class="card bg-white w-full shrink-0 rounded-2xl pb-2">
+            <form class="card-body px-6 sm:px-8 py-4 sm:py-6">
+              <div>
+                <label for="add-money-bank" class="label">
+                  <span class="label-text font-medium text-base">Select Bank</span>
+                </label>
+                <select id="add-money-bank"
+                  class="select w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 h-12 py-3 text-base font-normal">
+                  <option value="default" disabled selected>Select</option>
+                  <option value="islami">Islami Bank Ltd.</option>
+                  <option value="dbbl">Dutch-Bangla Bank Ltd.</option>
+                  <option value="sonali">Sonali Bank Ltd.</option>
+                  <option value="exim">EXIM Bank Ltd.</option>
+                  <option value="agrani">Agrani Bank Ltd.</option>
+                </select>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Bank Account Number</span>
+                </label>
+                <input id="add-money-account" type="text" placeholder="Enter account number"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Amount To Add</span>
+                </label>
+                <input id="add-money-amount" type="text" placeholder="Enter amount"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control mb-2">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Password</span>
+                </label>
+                <input id="add-money-password" type="password" placeholder="Enter password"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control">
+                <button id="add-money-btn"
+                  class="btn btn-primary w-full bg-[#0874f2] border-none rounded-3xl text-white text-base font-medium hover:bg-[#0874f2] hover:bg-opacity-80">Add
+                  Money</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="cash-out-form" class="bg-gray-100 px-4 sm:px-6 py-6">
+        <h2 class="text-xl font-semibold">Cash Out</h2>
+        <div class="hero-content pb-0 px-0">
+          <div class="card bg-white w-full shrink-0 rounded-2xl pb-2">
+            <form class="card-body px-6 sm:px-8 py-4 sm:py-6">
+              <div>
+                <label for="cash-out-service" class="label">
+                  <span class="label-text font-medium text-base">Select Service</span>
+                </label>
+                <select id="cash-out-service"
+                  class="select w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 h-12 py-3 text-base font-normal">
+                  <option disabled selected value="default">Select</option>
+                  <option value="bkash">bKash</option>
+                  <option value="nagad">Nagad</option>
+                  <option value="rocket">Rocket</option>
+                  <option value="upay">Upay</option>
+                </select>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Agent's Mobile Number</span>
+                </label>
+                <input id="cash-out-agent" type="text" placeholder="Enter mobile number"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Amount To Cash Out</span>
+                </label>
+                <input id="cash-out-amount" type="text" placeholder="Enter amount"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control mb-2">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Password</span>
+                </label>
+                <input id="cash-out-password" type="password" placeholder="Enter password"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control">
+                <button id="cash-out-btn"
+                  class="btn btn-primary w-full bg-[#0874f2] border-none rounded-3xl text-white text-base font-medium hover:bg-[#0874f2] hover:bg-opacity-80">Cash
+                  Out</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="send-money-form" class="bg-gray-100 px-4 sm:px-6 py-6">
+        <h2 class="text-xl font-semibold">Send Money</h2>
+        <div class="hero-content pb-0 px-0">
+          <div class="card bg-white w-full shrink-0 rounded-2xl pb-2">
+            <form class="card-body px-6 sm:px-8 py-4 sm:py-6">
+              <div>
+                <label for="send-money-bank" class="label">
+                  <span class="label-text font-medium text-base">Select Bank</span>
+                </label>
+                <select id="send-money-bank"
+                  class="select w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 h-12 py-3 text-base font-normal">
+                  <option value="default" disabled selected>Select</option>
+                  <option value="islami">Islami Bank Ltd.</option>
+                  <option value="dbbl">Dutch-Bangla Bank Ltd.</option>
+                  <option value="sonali">Sonali Bank Ltd.</option>
+                  <option value="exim">EXIM Bank Ltd.</option>
+                  <option value="agrani">Agrani Bank Ltd.</option>
+                </select>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Bank Account Number</span>
+                </label>
+                <input id="send-money-account" type="text" placeholder="Enter account number"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Amount To Send</span>
+                </label>
+                <input id="send-money-amount" type="text" placeholder="Enter amount"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control mb-2">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Password</span>
+                </label>
+                <input id="send-money-password" type="password" placeholder="Enter password"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control">
+                <button id="send-money-btn"
+                  class="btn btn-primary w-full bg-[#0874f2] border-none rounded-3xl text-white text-base font-medium hover:bg-[#0874f2] hover:bg-opacity-80">Send
+                  Money</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="get-bonus-form" class="bg-gray-100 px-4 sm:px-6 py-6">
+        <h2 class="text-xl font-semibold">Get Bonus</h2>
+        <div class="hero-content pb-0 px-0">
+          <div class="card bg-white w-full shrink-0 rounded-2xl pb-2">
+            <form class="card-body px-6 sm:px-8 py-4 sm:py-6">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Bonus Coupon</span>
+                </label>
+                <input id="bonus-coupon" type="text" placeholder="Enter coupon"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control mb-2">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Password</span>
+                </label>
+                <input id="bonus-password" type="password" placeholder="Enter password"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control">
+                <button id="get-bonus-btn"
+                  class="btn btn-primary w-full bg-[#0874f2] border-none rounded-3xl text-white text-base font-medium hover:bg-[#0874f2] hover:bg-opacity-80">Get
+                  Bonus</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="pay-bill-form" class="bg-gray-100 px-4 sm:px-6 py-6">
+        <h2 class="text-xl font-semibold">Pay Bill</h2>
+        <div class="hero-content pb-0 px-0">
+          <div class="card bg-white w-full shrink-0 rounded-2xl pb-2">
+            <form class="card-body px-6 sm:px-8 py-4 sm:py-6">
+              <div>
+                <label for="pay-bill-service" class="label">
+                  <span class="label-text font-medium text-base">Select Bill</span>
+                </label>
+                <select id="pay-bill-service"
+                  class="select w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 h-12 py-3 text-base font-normal">
+                  <option value="default" disabled selected>Select</option>
+                  <option value="electricity">Electricity Bill</option>
+                  <option value="gas">Gas Bill</option>
+                  <option value="water">Water Bill</option>
+                  <option value="internet">Internet Bill</option>
+                </select>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Biller Account Number</span>
+                </label>
+                <input id="pay-bill-account" type="text" placeholder="Enter account number"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Amount To Pay</span>
+                </label>
+                <input id="pay-bill-amount" type="text" placeholder="Enter amount"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control mb-2">
+                <label class="label">
+                  <span class="label-text font-medium text-base">Password</span>
+                </label>
+                <input id="pay-bill-password" type="password" placeholder="Enter password"
+                  class="input w-full rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 font-normal"
+                  required />
+              </div>
+              <div class="form-control">
+                <button id="pay-bill-btn"
+                  class="btn btn-primary w-full bg-[#0874f2] border-none rounded-3xl text-white text-base font-medium hover:bg-[#0874f2] hover:bg-opacity-80">Pay
+                  Bill</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="transaction-history" class="px-4 sm:px-6 py-6">
+        <div class="flex justify-between items-center">
+          <h2 id="transaction-title" class="text-xl font-semibold">No Recent Transactions</h2>
+          <a id="clear-all" class="hidden link link-hover opacity-50 text-sm font-normal">Clear All</a>
+        </div>
+        <div id="transaction-container" class="pb-0 px-0 flex flex-col">
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./scripts/home.js"></script>
+  <script src="./scripts/main.js"></script>
+</body>
+
+</html>

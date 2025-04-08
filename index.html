@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Payoo</title>
+  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            "outfit": ["Outfit", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-slate-800 font-outfit overflow-y-scroll">
+  <div class="max-w-md min-h-screen mx-auto flex flex-col justify-center gap-8 items-center bg-gray-100">
+    <header class="flex flex-col justify-center items-center gap-6">
+      <img src="./assets/bg.png" loading="lazy" alt="Background">
+      <img src="./assets/logo.png" loading="lazy" alt="Logo" class="-mt-[19rem]">
+    </header>
+
+    <main class="hero-content px-2 sm:px-4 py-0 w-11/12">
+      <section class="card bg-white w-full shrink-0 rounded-2xl">
+        <form class="card-body p-6 sm:p-8">
+          <div class="form-control">
+            <label class="label pt-0">
+              <span class="label-text font-medium text-base text-[#080808]">Account Number</span>
+            </label>
+            <input id="login-account" type="text" placeholder="Enter account number"
+              class="input rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 text-black font-normal"
+              required />
+          </div>
+          <div class="form-control mb-2">
+            <label class="label">
+              <span class="label-text font-medium text-base text-[#080808]">Password</span>
+            </label>
+            <input id="login-password" type="password" placeholder="Enter password"
+              class="input rounded-3xl bg-[#f4f5f7] border-none focus:outline-none px-5 py-6 text-black font-normal"
+              required />
+          </div>
+          <div class="form-control">
+            <button id="login-btn"
+              class="btn hover:bg-[#0874f2] hover:bg-opacity-80 w-full bg-[#0874f2] border-none rounded-3xl text-white text-base py-3 font-medium">Login</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="./scripts/login.js"></script>
+</body>
+
+</html>
